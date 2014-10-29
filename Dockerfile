@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM debian:wheezy
 MAINTAINER Jason Wilder jwilder@litl.com
 
 # Install Nginx.
