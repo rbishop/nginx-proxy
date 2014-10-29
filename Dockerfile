@@ -2,12 +2,11 @@ FROM debian:wheezy
 MAINTAINER Jason Wilder jwilder@litl.com
 
 # Install Nginx.
-RUN echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" > /etc/apt/sources.list.d/nginx-stable-trusty.list
-RUN echo "deb-src http://ppa.launchpad.net/nginx/stable/ubuntu trusty main" >> /etc/apt/sources.list.d/nginx-stable-trusty.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
+RUN echo "deb http://nginx.org/packages/debian/ wheezy nginx" >> /etc/apt/sources.list.d/nginx.list
+RUN apt-key adv --fetch-keys "http://nginx.org/keys/nginx_signing.key"
 RUN apt-get update
 RUN apt-get install --only-upgrade bash
-RUN apt-get install -y  wget nginx
+RUN apt-get install -y wget nginx
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
